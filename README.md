@@ -1,2 +1,3 @@
 # Introduction
-This is a mini-project, using Electron to build a desktop timer app.
+This is a mini-project.
+A simple countdown timer built built with Electron, HTML, and JavaScript.
