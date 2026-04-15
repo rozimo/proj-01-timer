@@ -6,7 +6,177 @@
 
 body {
   font-family: "Silkscreen", sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+}
+
+.appWindowContainer {
+    /* allows its children to position itself to it */
+    position: relative;
+    display: inline-block;
+}
+
+.onigiriContainer {
+    position: absolute;
+    top: 180px;
+    /*Push the element to the right by 50%*/
+    /*Starts the poster in the middle, hence the 50%*/
+    left: 50%;
+    /*Pulls the element back so the middle of the poster sits center*/
+    /*Essentially slide back of the itself only wide to the left to center the piece in the center.*/
+    transform: translateX(-50%);
+    /*Controls stacking order*/
+    /*The higher the number = front*/
+    z-index: 10;
+}
+
+.userInputContainer {
+    position: absolute;
+    top: 312px;
+    left: 50%;
+    transform: translateX(-50%); /* This is the missing piece */
+    /*Controls stacking order*/
+    /*The higher the number = front*/
+    z-index: 10;
+
+    display: flex;
+}
+
+.userInputContainer input {
+    width: 60px;
+    background: transparent;
+    border: none;
+    color: white;
+    transform: scaleY(1.5);
+}
+
+input::placeholder {
+  color: white;
+  opacity: 1; 
+}
+
+.timeColon {
+    color: white;
+    font-size: 40px;
+    transform: scaleY(2);
+}
+
+.timeMetrics {
+    font-size: 40px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+/* For Chrome, Safari, Edge, and Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.timerButtonsContainer {
+    position: absolute;
+    top: 415px;
+    left: 50%;
+    transform: translate(-50%);
+
+    /*Puts the timer's buttons in a row*/
+    display: flex;
+}
+
+/* This targets the buttons inside the window controls */
+.appWindowControls {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex; /* Forces the button to be the exact size of the image */
+}
+
+.appWindowControlsContainer {
+    position: absolute;
+    top: 6px;
+    left: 85.5%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 11px; /* Set this to 0px if you want them touching */
+}
+
+/* Pulls the Hide and Exit buttons together */
+#hideButton {
+    margin-right: -5px; 
+}
+
+/* Pulls the Start and End buttons together */
+#exitButton {
+    margin-right: 4px;
+}
+
+#hideButton:active img {
+    /* If you have a separate "pressed" image file: */
+    content: url("../assets/images/hideButtonClicked.png");
+}
+#exitButton:active img {
+    content: url("../assets/images/exitButtonClicked.png");
+}
+
+.timerButtons {
+    /* Allows the text inside to position relative to the button edges */
+    position: relative; 
+    
+    /* Remove default button styling so only your art shows */
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    /* enter the text horizontally and vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white; /* Change this to match your art's palette */
+    font-family: "Silkscreen", sans-serif;
+}
+
+.timerButtons img {
+    /* Ensure the image stays behind the text */
+    display: block; 
+}
+
+.timerButtons span {
+    /* This pulls the text out of the normal flow and puts it ON TOP */
+    position: absolute;
+
+    top: 43%; /* Manually nudge it up or down */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Keeps it centered after nudging */
+    z-index: 10;
+    
+    /* Disable clicking the text specifically so the button gets the click */
+    pointer-events: none; 
+    
+    /* Adjust font size to fit your button art */
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* When the button is clicked/held down */
+.timerButtons:active img {
+    /* If you have a separate "pressed" image file: */
+    content: url("../assets/images/startEndButtonClicked.png");
+}
+
+/* When the button is held down, only move the text */
+.timerButtons:active span {
+    transform: translate(-50%, calc(-50% + 5px));
+}
+
+#timerTitle {
+    position: absolute;
+    top: -13px;
+    left:5%;
 }
