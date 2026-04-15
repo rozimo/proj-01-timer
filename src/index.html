@@ -2,11 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
+    <title>Timer</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <div class="timerContainer">
+        <h1>Timer</h1>
+        <div>
+            <!--User need to input number of hours, minutes, and seconds-->
+            <input type="number" id="hours" placeholder="00" min="0" max="99">
+            <span>:</span>
+            <input type="number" id="minutes" placeholder="00" min="0" max="60">
+            <span>:</span>
+            <input type="number" id="seconds" placeholder="00" min="0" max="60">
+        </div>
+
+        <!--Timer's buttons-->
+        <button id="startButton" class="timerButtons">
+            <img src="../assets/images/startButtonImage.png" alt="Start timer">
+        </button>
+        <!--Hide display of pause button until start button is clicked, 
+        then switch display of the start and pause button.-->
+        <button id="pauseButton" class="timerButtons">
+            <img src="../assets/images/pauseButtonImage.png" alt="Pause timer">
+        </button>
+        <button id="stopButton" class="timerButtons">
+            <img src="../assets/images/stopButtonImage.png" alt="Stop timer">
+        </button>
+    </div>
   </body>
 </html>
