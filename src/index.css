@@ -25,7 +25,7 @@ body {
     transform: translateX(-50%);
     /*Controls stacking order*/
     /*The higher the number = front*/
-    z-index: 10;
+    z-index: 1;
 }
 
 .userInputContainer {
@@ -35,7 +35,7 @@ body {
     transform: translateX(-50%); /* This is the missing piece */
     /*Controls stacking order*/
     /*The higher the number = front*/
-    z-index: 10;
+    z-index: 1;
 
     display: flex;
 }
@@ -154,7 +154,7 @@ input[type=number] {
     top: 43%; /* Manually nudge it up or down */
     left: 50%;
     transform: translate(-50%, -50%); /* Keeps it centered after nudging */
-    z-index: 10;
+    z-index: 1;
     
     /* Disable clicking the text specifically so the button gets the click */
     pointer-events: none; 
@@ -178,5 +178,17 @@ input[type=number] {
 #timerTitle {
     position: absolute;
     top: -13px;
-    left:5%;
+    left:3.5%;
+}
+
+.timerMessageContainer {
+    position: absolute;
+    top: 75px;
+    left:50%;    
+    transform: translate(-50%);
+    font-size: 30px;
+    z-index: 2;
+    white-space: nowrap; /* Prevents the text from squishing or wrapping */
+    line-height: 5px;
+    text-align: center;
 }
